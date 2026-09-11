@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seller sign-in &mdash; AutoLink Online Car Sales</title>
+<meta name="description" content="Seller sign-in. Once signed in a seller can post car adverts. Buyers can search and view cars without signing in.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/login.css">
+
+<script src="js/store.js" defer></script>
+<script src="js/validate.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/login.js" defer></script>
+</head>
+
+<body data-page="login">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="52" height="52">
+      <span class="brand-text">
+        <span class="brand-name">AutoLink</span>
+        <span class="brand-tag">Online Car Sales</span>
+      </span>
+    </a>
+    <div class="header-session" data-header-session></div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="seller.html" data-page="seller">Seller centre</a></li>
+      <li><a href="search.html" data-page="search">Search cars</a></li>
+      <li class="nav-session" data-nav-session></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <div data-flash></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="seller.html">Seller centre</a></li>
+        <li aria-current="page">Seller sign-in</li>
+      </ol>
+    </nav>
+
+    <div class="login-wrap">
+      <div class="card login-card">
+
+        <div class="page-head center">
+          <h1>Seller sign-in</h1>
+          <p>Sign in to post car adverts. Buyers can search and view cars without an account.</p>
+        </div>
+
+        <div data-login-slot>
+
+          <div class="alert alert-error" id="loginAlert" role="alert" hidden></div>
+
+          <form id="loginForm" class="form" novalidate onsubmit="return false;">
+
+            <div class="field">
+              <label for="username">Username <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="username" name="username"
+                     autocomplete="username" placeholder="At least 6 letters or digits"
+                     aria-describedby="username-tip">
+              <div class="tip" id="username-tip" role="alert"></div>
+            </div>
+
+            <div class="field">
+              <label for="pwd">Password <span class="req" aria-hidden="true">*</span></label>
+              <input type="password" id="pwd" name="password"
+                     autocomplete="current-password" placeholder="At least 6 letters or digits"
+                     aria-describedby="pwd-tip">
+              <div class="tip" id="pwd-tip" role="alert"></div>
+            </div>
+
+            <div class="reveal-row">
+              <button type="button" class="btn-link" id="revealBtn"
+                      aria-pressed="false" aria-controls="pwd">Show password</button>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </div>
+
+          </form>
+
+          <p class="login-alt center small muted">
+            Do not have an account yet? <a href="register.html">Register as a seller</a>
+          </p>
+
+        </div>
+      </div>
+
+      <div class="card login-demo">
+        <h2 class="demo-title">Demonstration account</h2>
+        <p class="small">
+          First go to the <a href="search.html">search page</a> and select
+          &ldquo;Load sample data&rdquo;. You can then sign in with this account:
+        </p>
+        <dl class="demo-list">
+          <div><dt>Username</dt><dd><code data-demo-user>demoseller</code></dd></div>
+          <div><dt>Password</dt><dd><code data-demo-pwd>demo123</code></dd></div>
+        </dl>
+        <button type="button" class="btn btn-ghost btn-sm btn-block" id="fillDemoBtn">
+          Fill in the demo account
+        </button>
+        <p class="small muted demo-note">
+          If you have not loaded the sample data yet, signing in will report an invalid
+          username or password.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About AutoLink</h4>
+        <p>
+          An online car sales platform for private sellers. Sellers publish their own
+          listings and set their own prices; buyers can search and view car details
+          without registering.
+        </p>
+      </div>
+      <div>
+        <h4>For buyers</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search cars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For sellers</h4>
+        <ul>
+          <li><a href="seller.html">Seller centre</a></li>
+          <li><a href="register.html">Seller registration</a></li>
+          <li><a href="login.html">Seller sign-in</a></li>
+          <li><a href="addcar.html">Post a car</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> AutoLink Online Car Sales &middot; A teaching example for QHE4103 Fundamentals of Web Technology</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
