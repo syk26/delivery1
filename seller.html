@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seller centre &mdash; AutoLink Online Car Sales</title>
+<meta name="description" content="The seller centre brings registration, sign-in and posting a car together in one place, and shows the cars you have posted once you are signed in.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/seller.css">
+
+<script src="js/store.js" defer></script>
+<script src="js/cards.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/seller.js" defer></script>
+</head>
+
+<body data-page="seller">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="52" height="52">
+      <span class="brand-text">
+        <span class="brand-name">AutoLink</span>
+        <span class="brand-tag">Online Car Sales</span>
+      </span>
+    </a>
+    <div class="header-session" data-header-session></div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="seller.html" data-page="seller">Seller centre</a></li>
+      <li><a href="search.html" data-page="search">Search cars</a></li>
+      <li class="nav-session" data-nav-session></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <div data-flash></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Seller centre</li>
+      </ol>
+    </nav>
+
+    <div class="page-head">
+      <h1>Seller centre</h1>
+      <p>
+        This page gathers every entry point a seller needs to manage car adverts. The three
+        actions required by the specification &mdash; registration, sign-in and posting a car
+        &mdash; are always shown. Once you are signed in, your account details and the cars
+        you have posted are shown as well.
+      </p>
+    </div>
+
+    <section class="section" aria-labelledby="status-title" data-status-panel>
+      <noscript>
+        <div class="alert alert-info">
+          <strong>JavaScript is disabled in this browser.</strong>
+          Navigation between pages still works, but the sign-in status and the list of cars
+          need JavaScript to appear. Please use the three entry points below instead.
+        </div>
+      </noscript>
+    </section>
+
+    <section class="section" aria-labelledby="entry-title">
+      <div class="page-head">
+        <h2 id="entry-title">Seller actions</h2>
+        <p>The three routes are independent of each other, and each one leads back to this page.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card panel entry-card">
+          <span class="entry-badge">1</span>
+          <h3>Seller registration</h3>
+          <p>
+            Register before using the site for the first time. A regular expression checks
+            each of the six fields &mdash; name, address, phone number, email, username and
+            password &mdash; and the account is only created once all six pass.
+          </p>
+          <a class="btn btn-secondary" href="register.html">Register</a>
+        </article>
+
+        <article class="card panel entry-card">
+          <span class="entry-badge">2</span>
+          <h3>Seller sign-in</h3>
+          <p>
+            Sellers who already have an account sign in here. The session is kept in this
+            browser, so refreshing the page or moving to another page will not sign you out.
+          </p>
+          <a class="btn btn-secondary" href="login.html">Sign in</a>
+        </article>
+
+        <article class="card panel entry-card">
+          <span class="entry-badge">3</span>
+          <h3>Post a car</h3>
+          <p>
+            Once signed in, enter the colour, model, year, location and price and upload a
+            photograph. The car appears in the search results as soon as you submit it.
+          </p>
+          <a class="btn btn-primary" href="addcar.html">Post a car</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="mycars-title" data-mycars hidden>
+      <div class="page-head row-between">
+        <div>
+          <h2 id="mycars-title">Cars I have posted</h2>
+          <p>Select a card to see how its detail page looks.</p>
+        </div>
+        <a class="btn btn-primary btn-sm" href="addcar.html">Post another car</a>
+      </div>
+      <div class="car-grid" data-mycars-grid></div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About AutoLink</h4>
+        <p>
+          An online car sales platform for private sellers. Sellers publish their own
+          listings and set their own prices; buyers can search and view car details
+          without registering.
+        </p>
+      </div>
+      <div>
+        <h4>For buyers</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search cars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For sellers</h4>
+        <ul>
+          <li><a href="seller.html">Seller centre</a></li>
+          <li><a href="register.html">Seller registration</a></li>
+          <li><a href="login.html">Seller sign-in</a></li>
+          <li><a href="addcar.html">Post a car</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> AutoLink Online Car Sales &middot; A teaching example for QHE4103 Fundamentals of Web Technology</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
