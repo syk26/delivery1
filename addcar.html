@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post a car &mdash; AutoLink Online Car Sales</title>
+<meta name="description" content="Sellers post a car advert here: colour, model, year, location, price and a photograph of the car. Sign-in is required.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/addcar.css">
+
+<script src="js/store.js" defer></script>
+<script src="js/validate.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/addcar.js" defer></script>
+</head>
+
+<body data-page="addcar">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="52" height="52">
+      <span class="brand-text">
+        <span class="brand-name">AutoLink</span>
+        <span class="brand-tag">Online Car Sales</span>
+      </span>
+    </a>
+    <div class="header-session" data-header-session></div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="seller.html" data-page="seller">Seller centre</a></li>
+      <li><a href="search.html" data-page="search">Search cars</a></li>
+      <li class="nav-session" data-nav-session></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <div data-flash></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="seller.html">Seller centre</a></li>
+        <li aria-current="page">Post a car</li>
+      </ol>
+    </nav>
+
+    <div class="page-head">
+      <h1>Post a car</h1>
+      <p>
+        Enter the car details and upload a photograph. Fields marked
+        <span class="req" aria-hidden="true">*</span> are required. Once the car is
+        posted you are taken straight to its detail page.
+      </p>
+    </div>
+
+    <div class="card gate-card" data-gate hidden>
+      <h2>You need to sign in first</h2>
+      <p>
+        Posting a car is a seller-only action. Please sign in to your seller account.
+        If you do not have one yet, registering takes about a minute.
+      </p>
+      <div class="row">
+        <a class="btn btn-primary" href="login.html">Sign in</a>
+        <a class="btn btn-ghost" href="register.html">Register a new account</a>
+        <a class="btn btn-ghost" href="search.html">I only want to browse cars</a>
+      </div>
+      <p class="small muted gate-note">
+        Buyers do not need an account to <a href="search.html">search the listings</a>
+        and open a car detail page.
+      </p>
+    </div>
+
+    <noscript>
+      <div class="alert alert-error">
+        <strong>JavaScript is disabled in this browser.</strong>
+        Posting a car needs JavaScript for form validation and image compression, so
+        please enable it and try again. You can still browse the
+        <a href="search.html">search page</a> as normal.
+      </div>
+    </noscript>
+
+    <div class="addcar-layout" data-form-wrap>
+      <div class="card card--form">
+
+        <form id="carForm" class="form" novalidate onsubmit="return false;">
+
+          <div class="alert alert-error" id="formAlert" role="alert" hidden></div>
+
+          <fieldset class="form-section">
+            <legend>Car details</legend>
+
+            <div class="form-grid">
+
+              <div class="field field--full">
+                <label for="model">Model <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="model" name="model" maxlength="40"
+                       placeholder="Toyota Camry" autocomplete="off"
+                       aria-describedby="model-hint model-tip">
+                <p class="hint" id="model-hint">Make and model, 2 to 40 characters. This is the word buyers will search on.</p>
+                <div class="tip" id="model-tip" role="alert"></div>
+              </div>
+
+              <div class="field">
+                <label for="year">Year <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="year" name="year" inputmode="numeric"
+                       maxlength="4" placeholder="2021" autocomplete="off"
+                       aria-describedby="year-hint year-tip">
+                <p class="hint" id="year-hint">Four digits, between 1950 and <span data-max-year>this year</span></p>
+                <div class="tip" id="year-tip" role="alert"></div>
+              </div>
+
+              <div class="field">
+                <label for="colour">Colour <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="colour" name="colour" maxlength="30"
+                       placeholder="White or Light Blue" autocomplete="off"
+                       aria-describedby="colour-hint colour-tip">
+                <p class="hint" id="colour-hint">2 to 30 characters; letters, spaces and hyphens</p>
+                <div class="tip" id="colour-tip" role="alert"></div>
+              </div>
+
+              <div class="field">
+                <label for="price">Price (CNY) <span class="req" aria-hidden="true">*</span></label>
+                <span class="input-prefix">
+                  <span class="input-prefix-symbol" aria-hidden="true">&yen;</span>
+                  <input type="text" id="price" name="price" inputmode="decimal"
+                         maxlength="11" placeholder="128000" autocomplete="off"
+                         aria-describedby="price-hint price-tip">
+                </span>
+                <p class="hint" id="price-hint">Digits only, at most two decimal places. Do not add a currency symbol or thousands separators.</p>
+                <div class="tip" id="price-tip" role="alert"></div>
+              </div>
+
+              <div class="field">
+                <label for="location">Location <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="location" name="location" maxlength="40"
+                       placeholder="Chaoyang District, Beijing" autocomplete="off"
+                       aria-describedby="location-hint location-tip">
+                <p class="hint" id="location-hint">City or district, 2 to 40 characters</p>
+                <div class="tip" id="location-tip" role="alert"></div>
+              </div>
+
+              <div class="field field--full">
+                <label for="notes">Description <span class="optional-tag">optional</span></label>
+                <textarea id="notes" name="notes" maxlength="500" rows="4"
+                          placeholder="Condition, mileage, service history, whether it has been in an accident, and so on"
+                          aria-describedby="notes-hint notes-tip"></textarea>
+                <p class="hint" id="notes-hint">
+                  Up to 500 characters. You have typed <span data-count="0">0</span> so far.
+                </p>
+                <div class="tip" id="notes-tip" role="alert"></div>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend>Car photograph</legend>
+
+            <div class="field">
+              <label for="image">Upload a photograph <span class="req" aria-hidden="true">*</span></label>
+              <div class="file-wrap">
+                <input type="file" id="image" name="image" accept="image/*"
+                       aria-describedby="image-hint image-tip">
+              </div>
+              <p class="hint" id="image-hint">
+                jpg, png or webp, up to 5 MB. The image is scaled down proportionally so its
+                longest side is 800 px before it is saved, which keeps it inside the browser
+                local storage quota.
+              </p>
+
+              <button type="button" class="btn btn-ghost btn-sm" id="useSampleImg">
+                No photograph? Use a sample placeholder
+              </button>
+
+              <div class="tip" id="image-tip" role="alert"></div>
+
+              <div class="preview" data-preview hidden>
+                <img src="" alt="Preview of the photograph to be posted" data-preview-img>
+                <div class="preview-meta">
+                  <p class="small muted" data-preview-info></p>
+                  <button type="button" class="btn btn-ghost btn-sm" data-preview-remove>
+                    Remove image
+                  </button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Post car</button>
+            <button type="reset" class="btn btn-ghost" id="resetBtn">Clear and start again</button>
+            <a class="btn btn-ghost" href="seller.html">Back to the seller centre</a>
+          </div>
+
+        </form>
+      </div>
+
+      <aside class="stack" aria-label="Tips for filling in the form">
+        <div class="card">
+          <h2 class="side-title">How to sell your car faster</h2>
+          <ul class="tick-list">
+            <li>Write the model as make plus model, for example <code>Toyota Camry</code>, so buyers can find it</li>
+            <li>Use the year the car was built, not the year it was first registered</li>
+            <li>Enter the price as a whole number of yuan, without pence after the decimal point</li>
+            <li>Choose a photograph taken from the front three-quarter angle in good light</li>
+            <li>State the mileage, accident history and service record clearly to avoid repeated questions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 class="side-title">How the photograph is processed</h2>
+          <ol class="next-list">
+            <li>The browser reads the original file with <code>FileReader</code></li>
+            <li>It is decoded into an <code>Image</code> object and drawn onto a <code>&lt;canvas&gt;</code></li>
+            <li>It is scaled down proportionally so the longest side is 800 px</li>
+            <li>It is exported as a JPEG at quality 0.7, usually leaving only 50 to 150 KB</li>
+            <li>It is stored in localStorage, so it will not appear in a different browser</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About AutoLink</h4>
+        <p>
+          An online car sales platform for private sellers. Sellers publish their own
+          listings and set their own prices; buyers can search and view car details
+          without registering.
+        </p>
+      </div>
+      <div>
+        <h4>For buyers</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search cars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For sellers</h4>
+        <ul>
+          <li><a href="seller.html">Seller centre</a></li>
+          <li><a href="register.html">Seller registration</a></li>
+          <li><a href="login.html">Seller sign-in</a></li>
+          <li><a href="addcar.html">Post a car</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> AutoLink Online Car Sales &middot; A teaching example for QHE4103 Fundamentals of Web Technology</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
