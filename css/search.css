@@ -1,0 +1,87 @@
+.search-panel { padding: var(--s-5); }
+
+.search-form {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) auto;
+  gap: var(--s-4);
+  align-items: start;
+}
+
+.search-actions {
+  display: flex;
+  gap: var(--s-3);
+  padding-top: 27px;
+}
+
+.search-form .field { min-height: 96px; }
+
+.results { border-top: none; }
+.results .page-head { margin-bottom: var(--s-4); }
+.results .page-head p { margin-top: var(--s-1); }
+
+.result-count {
+  font-weight: 700;
+  color: var(--c-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.results .car-grid { margin-top: var(--s-2); }
+
+.demo-panel { background: #fbfcfd; }
+.demo-panel h2 {
+  font-size: .95rem;
+  margin-bottom: var(--s-2);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--c-border);
+}
+.demo-panel > p { margin-bottom: var(--s-3); }
+.demo-panel [data-demo-status] { margin: var(--s-3) 0 0; min-height: 1.4em; }
+.demo-panel [data-demo-status]:not(:empty) {
+  padding-top: var(--s-3);
+  border-top: 1px dashed var(--c-border);
+  font-weight: 600;
+  color: var(--c-success);
+}
+
+.demo-panel [data-demo-status].is-error { color: var(--c-error); }
+
+#wipeBtn[data-confirming="true"] {
+  background: var(--c-error);
+  border-color: var(--c-error);
+  color: #fff;
+  animation: nudge .28s ease;
+}
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-3px); }
+  75%      { transform: translateX(3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #wipeBtn[data-confirming="true"] { animation: none; }
+  .car-card { transition: none; }
+  .car-card:hover { transform: none; }
+}
+
+@media (max-width: 1023px) {
+  .search-panel { padding: var(--s-4); }
+  .search-form { grid-template-columns: minmax(0, 2fr) minmax(0, .8fr) auto; gap: var(--s-3); }
+}
+
+@media (max-width: 767px) {
+  .search-form { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+
+  .search-actions {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
+  .search-actions .btn { flex: 1 1 auto; }
+
+  .search-form .field { min-height: 0; }
+
+  .demo-panel .row .btn { flex: 1 1 auto; }
+}
+
+@media (max-width: 479px) {
+  .search-form { grid-template-columns: 1fr; }
+}

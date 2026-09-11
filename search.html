@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search cars &mdash; AutoLink Online Car Sales</title>
+<meta name="description" content="Search the cars for sale by model and year. Buyers do not need to register or sign in to see the results or open a car detail page.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/search.css">
+
+<script src="js/store.js" defer></script>
+<script src="js/cards.js" defer></script>
+<script src="js/validate.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/search.js" defer></script>
+</head>
+
+<body data-page="search">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="52" height="52">
+      <span class="brand-text">
+        <span class="brand-name">AutoLink</span>
+        <span class="brand-tag">Online Car Sales</span>
+      </span>
+    </a>
+    <div class="header-session" data-header-session></div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="seller.html" data-page="seller">Seller centre</a></li>
+      <li><a href="search.html" data-page="search">Search cars</a></li>
+      <li class="nav-session" data-nav-session></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <div data-flash></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Search cars</li>
+      </ol>
+    </nav>
+
+    <div class="page-head">
+      <h1>Search cars</h1>
+      <p>
+        Search the cars for sale by model and year. <strong>Both criteria may be
+        left blank</strong> &mdash; leaving both empty lists every car. The model field
+        matches on substrings, so typing <code>cam</code> will find
+        <code>Toyota Camry</code>.
+      </p>
+    </div>
+
+    <section class="card search-panel" aria-labelledby="search-title">
+      <h2 id="search-title" class="visually-hidden">Search criteria</h2>
+
+      <form id="searchForm" class="search-form" novalidate onsubmit="return false;">
+
+        <div class="field">
+          <label for="model">Model</label>
+          <input type="text" id="model" name="model" maxlength="40"
+                 placeholder="For example Toyota Camry" autocomplete="off"
+                 aria-describedby="model-tip">
+          <div class="tip" id="model-tip" role="alert"></div>
+        </div>
+
+        <div class="field field-year">
+          <label for="year">Year</label>
+          <input type="text" id="year" name="year" inputmode="numeric"
+                 maxlength="4" placeholder="For example 2021" autocomplete="off"
+                 aria-describedby="year-tip">
+          <div class="tip" id="year-tip" role="alert"></div>
+        </div>
+
+        <div class="search-actions">
+          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="button" class="btn btn-ghost" id="clearBtn">Clear criteria</button>
+        </div>
+
+      </form>
+    </section>
+
+    <section class="section results" aria-labelledby="results-title" aria-live="polite">
+      <div class="page-head row-between">
+        <div>
+          <h2 id="results-title">Search results</h2>
+          <p data-result-summary>Loading car data...</p>
+        </div>
+        <p class="small muted" data-sort-note>Newest first</p>
+      </div>
+
+      <div class="car-grid" data-results></div>
+    </section>
+
+    <section class="section" aria-labelledby="demo-title">
+      <div class="card demo-panel">
+        <h2 id="demo-title">Demonstration data</h2>
+        <p class="small muted">
+          This site keeps its data in the browser localStorage, so it is empty the first
+          time you open it. Loading the sample data writes one demo seller and five sample
+          cars, which is enough to demonstrate search and the detail page. Loading it again
+          replaces the previous sample cars but never touches accounts or cars you registered
+          and posted yourself.
+        </p>
+        <div class="row">
+          <button type="button" class="btn btn-secondary btn-sm" id="seedBtn">Load sample data</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="wipeBtn" data-confirming="false">
+            Clear all data
+          </button>
+        </div>
+        <p class="small muted" data-demo-status role="status"></p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About AutoLink</h4>
+        <p>
+          An online car sales platform for private sellers. Sellers publish their own
+          listings and set their own prices; buyers can search and view car details
+          without registering.
+        </p>
+      </div>
+      <div>
+        <h4>For buyers</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search cars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For sellers</h4>
+        <ul>
+          <li><a href="seller.html">Seller centre</a></li>
+          <li><a href="register.html">Seller registration</a></li>
+          <li><a href="login.html">Seller sign-in</a></li>
+          <li><a href="addcar.html">Post a car</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> AutoLink Online Car Sales &middot; A teaching example for QHE4103 Fundamentals of Web Technology</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
