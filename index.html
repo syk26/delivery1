@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home &mdash; AutoLink Online Car Sales</title>
+<meta name="description" content="AutoLink is an online car sales platform. Registered sellers can post car adverts, and buyers can search by model and year and view the full details of every car.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+
+<script src="js/store.js" defer></script>
+<script src="js/cards.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/home.js" defer></script>
+</head>
+
+<body data-page="home">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="52" height="52">
+      <span class="brand-text">
+        <span class="brand-name">AutoLink</span>
+        <span class="brand-tag">Online Car Sales</span>
+      </span>
+    </a>
+    <div class="header-session" data-header-session></div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="seller.html" data-page="seller">Seller centre</a></li>
+      <li><a href="search.html" data-page="search">Search cars</a></li>
+      <li class="nav-session" data-nav-session></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <div data-flash></div>
+
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Used cars &middot; Direct from the seller &middot; No middlemen</p>
+        <h1 id="hero-title">Find your next car,<br>or sell the one you have</h1>
+        <p class="hero-lede">
+          AutoLink is an online car sales platform for private sellers. Once registered,
+          a seller can post a car advert. Buyers do not need an account: they can search
+          by model and year and see the full listing, including the photo, colour and price.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="search.html">Search cars</a>
+          <a class="btn btn-ghost" href="register.html">Sell your car</a>
+        </div>
+      </div>
+
+      <aside class="hero-stats card" aria-label="Platform statistics">
+        <h2 class="hero-stats-title">Platform statistics</h2>
+        <dl class="hero-stats-list">
+          <div>
+            <dt>Cars for sale</dt>
+            <dd data-stat="cars">0</dd>
+          </div>
+          <div>
+            <dt>Registered sellers</dt>
+            <dd data-stat="sellers">0</dd>
+          </div>
+          <div>
+            <dt>Cities covered</dt>
+            <dd data-stat="cities">0</dd>
+          </div>
+        </dl>
+        <p class="hero-stats-note small muted">Data is stored in this browser only, for coursework demonstration purposes.</p>
+      </aside>
+    </section>
+
+    <section class="section" aria-labelledby="entry-title">
+      <div class="page-head">
+        <h2 id="entry-title">What would you like to do?</h2>
+        <p>Three routes cover everything a buyer or a seller needs to do, and each one leads back to this page.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card panel">
+          <h3>I want to buy a car</h3>
+          <p>No registration needed. Enter a model or a year to search every car for sale, then open any result to see the full photograph and specifications.</p>
+          <a class="btn btn-secondary" href="search.html">Start searching</a>
+        </article>
+
+        <article class="card panel">
+          <h3>I want to sell a car</h3>
+          <p>Register as a seller first. The registration form checks the name, address, phone number, email, username and password against a regular expression for each field.</p>
+          <a class="btn btn-secondary" href="register.html">Register a seller account</a>
+        </article>
+
+        <article class="card panel">
+          <h3>I already have an account</h3>
+          <p>Sign in to post a car advert. The seller centre also brings registration, sign-in and posting together in one place.</p>
+          <a class="btn btn-ghost" href="login.html">Sign in</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="about-title">
+      <div class="page-head">
+        <h2 id="about-title">About AutoLink</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3>What we do</h3>
+          <p>
+            AutoLink was founded in 2026 as an online platform focused on private
+            used car sales. Unlike a traditional dealership, we let sellers publish
+            their own car details and set their own prices. The platform simply puts
+            each car in front of the buyers who are looking for it.
+          </p>
+          <p>
+            We believe transparent information reduces friction in a sale. Every
+            listing carries a photograph, colour, year, location and price, so a buyer
+            already holds the information they need before they ever contact the seller.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Main features</h3>
+          <ul class="tick-list">
+            <li>Seller registration with client-side regular expression validation on all six fields</li>
+            <li>Seller sign-in with a session that survives a page refresh</li>
+            <li>Post a car: colour, model, year, location, price and photograph</li>
+            <li>Search by model and year, with substring matching</li>
+            <li>Car detail page with a large photograph, full specifications and seller contact details</li>
+            <li>Responsive layout for desktop, laptop and tablet screens</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="latest-title">
+      <div class="page-head row-between">
+        <div>
+          <h2 id="latest-title">Latest arrivals</h2>
+          <p>The three most recently posted cars, newest first. Select a card to see the details.</p>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="search.html">View all cars</a>
+      </div>
+
+      <div class="car-grid" data-latest-cars></div>
+    </section>
+
+    <section class="section" aria-labelledby="how-title">
+      <div class="page-head">
+        <h2 id="how-title">Selling in three steps</h2>
+      </div>
+      <ol class="steps">
+        <li class="card">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>Register</h3>
+          <p>Enter your name, address, phone number and email, then choose a username and password of at least six letters or digits.</p>
+          <a href="register.html">Register now</a>
+        </li>
+        <li class="card">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>Sign in and post</h3>
+          <p>Once signed in, open the post a car page, fill in the car details and upload a photograph. The image is compressed automatically before it is saved.</p>
+          <a href="addcar.html">Post a car</a>
+        </li>
+        <li class="card">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>Get found by buyers</h3>
+          <p>A posted car enters the search results immediately, so buyers can find it by model or year and open its detail page.</p>
+          <a href="search.html">Search cars</a>
+        </li>
+      </ol>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About AutoLink</h4>
+        <p>
+          An online car sales platform for private sellers. Sellers publish their own
+          listings and set their own prices; buyers can search and view car details
+          without registering.
+        </p>
+      </div>
+      <div>
+        <h4>For buyers</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search cars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For sellers</h4>
+        <ul>
+          <li><a href="seller.html">Seller centre</a></li>
+          <li><a href="register.html">Seller registration</a></li>
+          <li><a href="login.html">Seller sign-in</a></li>
+          <li><a href="addcar.html">Post a car</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> AutoLink Online Car Sales &middot; A teaching example for QHE4103 Fundamentals of Web Technology</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
