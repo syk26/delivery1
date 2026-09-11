@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">AutoLink Online Car Sales logo</title>
+
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="#f5a623"/>
+
+  <g transform="translate(0 2)">
+    <path d="M18 30 L23.6 21.9 Q24.7 20.3 26.7 20.3 H38.8 Q40.8 20.3 41.9 21.9 L47.5 30 Z"
+          fill="#0f2744"/>
+
+    <rect x="31.9" y="21.6" width="1.9" height="8.4" fill="#f5a623"/>
+
+    <rect x="7.5" y="29.5" width="49" height="10.5" rx="4" fill="#0f2744"/>
+
+    <circle cx="19" cy="40" r="5.6" fill="#0f2744"/>
+    <circle cx="19" cy="40" r="2.2" fill="#f5a623"/>
+    <circle cx="45" cy="40" r="5.6" fill="#0f2744"/>
+    <circle cx="45" cy="40" r="2.2" fill="#f5a623"/>
+  </g>
+</svg>

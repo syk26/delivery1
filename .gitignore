@@ -1,13 +1,19 @@
-# ---> AL
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
 
-# Local History for Visual Studio Code
-.history/
-*.app
-.snapshots/*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
+*.log
+npm-debug.log*
+
+*.local.json
+
+/test*.png
+/_test_*.png
+/_*.py
+/_*.txt
