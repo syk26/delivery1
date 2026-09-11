@@ -1,0 +1,78 @@
+.login-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.login-card { padding: var(--s-6); }
+.login-card .page-head { margin-bottom: var(--s-5); }
+.login-card .page-head p { margin-inline: auto; }
+
+.login-card .form-actions { padding-top: var(--s-3); }
+
+.login-alt { margin-top: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--c-border); }
+
+.reveal-row { display: flex; justify-content: flex-end; margin-top: calc(-1 * var(--s-2)); }
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: var(--s-1) var(--s-2);
+  color: var(--c-info);
+  font-size: .85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  border-radius: var(--r-sm);
+}
+.btn-link:hover { color: var(--c-primary); }
+
+.login-demo { background: #fbfcfd; }
+.demo-title {
+  font-size: .95rem;
+  margin-bottom: var(--s-2);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--c-border);
+}
+.login-demo p { margin-bottom: var(--s-3); }
+
+.demo-list { margin: 0 0 var(--s-4); }
+.demo-list > div {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding: var(--s-1) 0;
+}
+.demo-list dt { font-size: .82rem; color: var(--c-muted); flex: none; width: 52px; }
+.demo-list dd { margin: 0; }
+
+.demo-list code {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: .92rem;
+  background: var(--c-primary);
+  color: #fff;
+  padding: 2px var(--s-2);
+  border-radius: var(--r-sm);
+
+  overflow-wrap: anywhere;
+}
+
+.demo-note { margin: var(--s-3) 0 0; padding-top: var(--s-3); border-top: 1px dashed var(--c-border); }
+
+.already-in { text-align: center; }
+.already-in h2 { font-size: 1.2rem; margin-bottom: var(--s-2); }
+.already-in p  { color: var(--c-muted); margin-bottom: var(--s-4); }
+.already-in .row { justify-content: center; }
+
+@media (max-width: 1023px) {
+  .login-wrap { grid-template-columns: 1fr; max-width: 520px; }
+  .login-card { padding: var(--s-5); }
+}
+
+@media (max-width: 767px) {
+  .login-card { padding: var(--s-4); }
+  .login-card .page-head h1 { font-size: 1.5rem; }
+  .demo-list dt { width: 46px; }
+}
