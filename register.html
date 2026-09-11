@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seller registration &mdash; AutoLink Online Car Sales</title>
+<meta name="description" content="Register as an AutoLink seller. All six fields &mdash; name, address, phone number, email, username and password &mdash; are validated on the client side with regular expressions.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/register.css">
+
+<script src="js/store.js" defer></script>
+<script src="js/validate.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/register.js" defer></script>
+</head>
+
+<body data-page="register">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="52" height="52">
+      <span class="brand-text">
+        <span class="brand-name">AutoLink</span>
+        <span class="brand-tag">Online Car Sales</span>
+      </span>
+    </a>
+    <div class="header-session" data-header-session></div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="seller.html" data-page="seller">Seller centre</a></li>
+      <li><a href="search.html" data-page="search">Search cars</a></li>
+      <li class="nav-session" data-nav-session></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <div data-flash></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="seller.html">Seller centre</a></li>
+        <li aria-current="page">Seller registration</li>
+      </ol>
+    </nav>
+
+    <div class="page-head">
+      <h1>Seller registration</h1>
+      <p>
+        Complete the form below to create a seller account. Fields marked
+        <span class="req" aria-hidden="true">*</span> are required. All six fields are
+        validated on the client side with a regular expression, and nothing is submitted
+        until every one of them passes.
+      </p>
+    </div>
+
+    <div class="register-layout">
+
+      <div class="card card--form">
+
+        <form id="regForm" class="form" novalidate onsubmit="return false;">
+
+          <div class="alert alert-error" id="formAlert" role="alert" hidden></div>
+          <div class="alert alert-success" id="okAlert" role="status" hidden></div>
+
+          <fieldset class="form-section">
+            <legend>Personal details</legend>
+
+            <div class="form-grid">
+
+              <div class="field">
+                <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name"
+                       autocomplete="name" placeholder="Zhang San"
+                       aria-describedby="name-hint name-tip">
+                <p class="hint" id="name-hint">Letters and spaces only, for example Zhang San</p>
+                <div class="tip" id="name-tip" role="alert"></div>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="phone" name="phone" inputmode="numeric"
+                       autocomplete="tel" placeholder="13800138000" maxlength="11"
+                       aria-describedby="phone-hint phone-tip">
+                <p class="hint" id="phone-hint">A mainland China mobile number: 11 digits starting with 1</p>
+                <div class="tip" id="phone-tip" role="alert"></div>
+              </div>
+
+              <div class="field field--full">
+                <label for="address">Address <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="address" name="address"
+                       autocomplete="street-address" placeholder="88 Xueyuan Road Beijing"
+                       aria-describedby="address-hint address-tip">
+                <p class="hint" id="address-hint">Letters, digits and spaces only. Punctuation is not accepted.</p>
+                <div class="tip" id="address-tip" role="alert"></div>
+              </div>
+
+              <div class="field field--full">
+                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email"
+                       autocomplete="email" placeholder="seller@mail.autolink.com"
+                       aria-describedby="email-hint email-tip">
+                <p class="hint" id="email-hint">Must contain exactly one @ and end with .com or .cn</p>
+                <div class="tip" id="email-tip" role="alert"></div>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend>Account details</legend>
+
+            <div class="form-grid">
+
+              <div class="field">
+                <label for="username">Username <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="username" name="username"
+                       autocomplete="username" placeholder="seller001" maxlength="20"
+                       aria-describedby="username-hint username-tip">
+                <p class="hint" id="username-hint">At least 6 characters, letters or digits only</p>
+                <div class="tip" id="username-tip" role="alert"></div>
+              </div>
+
+              <div class="field">
+                <label for="pwd">Password <span class="req" aria-hidden="true">*</span></label>
+                <input type="password" id="pwd" name="password"
+                       autocomplete="new-password" placeholder="At least 6 letters or digits" maxlength="32"
+                       aria-describedby="pwd-hint pwd-tip">
+                <p class="hint" id="pwd-hint">At least 6 characters, letters or digits only</p>
+                <div class="tip" id="pwd-tip" role="alert"></div>
+              </div>
+
+              <div class="field field--full">
+                <p class="hint">
+                  <strong>Teaching note:</strong> this site is a front-end demonstration only,
+                  so passwords are stored as plain text in the browser localStorage. A real
+                  system must hash and salt them on the server, which is covered in Phase B.
+                </p>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit registration</button>
+            <button type="reset" class="btn btn-ghost" id="resetBtn">Clear and start again</button>
+            <a class="btn btn-ghost" href="login.html">Already registered? Sign in</a>
+          </div>
+
+        </form>
+      </div>
+
+      <aside class="stack" aria-label="Validation rule reference">
+        <div class="card">
+          <h2 class="rules-title">Validation rules at a glance</h2>
+          <dl class="rules-list">
+            <div><dt>Full name</dt><dd>Letters and spaces only</dd></div>
+            <div><dt>Address</dt><dd>Letters, digits and spaces only</dd></div>
+            <div><dt>Phone number</dt><dd>11 mainland China digits, starting 1 with a second digit of 3 to 9</dd></div>
+            <div><dt>Email</dt><dd>Exactly one @, ending in .com or .cn</dd></div>
+            <div><dt>Username</dt><dd>At least 6 letters or digits</dd></div>
+            <div><dt>Password</dt><dd>At least 6 letters or digits</dd></div>
+          </dl>
+        </div>
+
+        <div class="card">
+          <h2 class="rules-title">What to do after registering</h2>
+          <ol class="next-list">
+            <li><a href="login.html">Sign in</a> with the username and password you just chose</li>
+            <li>Open the <a href="addcar.html">post a car</a> page, fill in the car details and upload a photograph</li>
+            <li>Check the <a href="search.html">search page</a> to confirm your car can now be found</li>
+          </ol>
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About AutoLink</h4>
+        <p>
+          An online car sales platform for private sellers. Sellers publish their own
+          listings and set their own prices; buyers can search and view car details
+          without registering.
+        </p>
+      </div>
+      <div>
+        <h4>For buyers</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search cars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For sellers</h4>
+        <ul>
+          <li><a href="seller.html">Seller centre</a></li>
+          <li><a href="register.html">Seller registration</a></li>
+          <li><a href="login.html">Seller sign-in</a></li>
+          <li><a href="addcar.html">Post a car</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> AutoLink Online Car Sales &middot; A teaching example for QHE4103 Fundamentals of Web Technology</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
