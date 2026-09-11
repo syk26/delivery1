@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car details &mdash; AutoLink Online Car Sales</title>
+<meta name="description" content="The full listing for a car: photograph, colour, model, year, location, price and the seller's contact details.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/car.css">
+
+<script src="js/store.js" defer></script>
+<script src="js/cards.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/car.js" defer></script>
+</head>
+
+<body data-page="car">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="52" height="52">
+      <span class="brand-text">
+        <span class="brand-name">AutoLink</span>
+        <span class="brand-tag">Online Car Sales</span>
+      </span>
+    </a>
+    <div class="header-session" data-header-session></div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="container">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="seller.html" data-page="seller">Seller centre</a></li>
+      <li><a href="search.html" data-page="search">Search cars</a></li>
+      <li class="nav-session" data-nav-session></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <div data-flash></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html" data-crumb-search>Search cars</a></li>
+        <li aria-current="page" data-crumb-current>Car details</li>
+      </ol>
+    </nav>
+
+    <noscript>
+      <div class="alert alert-error">
+        <strong>JavaScript is disabled in this browser.</strong>
+        The car details are read from local storage using the id in the address bar,
+        so please enable JavaScript and reload the page.
+      </div>
+    </noscript>
+
+    <article data-detail hidden>
+
+      <div class="detail-layout">
+
+        <figure class="detail-media">
+          <img src="" alt="" data-d-img>
+          <figcaption class="small muted" data-d-imgcap></figcaption>
+        </figure>
+
+        <div class="detail-info">
+          <p class="detail-yearline">
+            <span class="badge badge--accent" data-d-year></span>
+            <span class="badge" data-d-location></span>
+          </p>
+
+          <h1 data-d-title></h1>
+
+          <p class="detail-price" data-d-price></p>
+
+          <dl class="spec-list">
+            <div><dt>Model</dt><dd data-d-model></dd></div>
+            <div><dt>Year</dt><dd data-d-year2></dd></div>
+            <div><dt>Colour</dt><dd data-d-colour></dd></div>
+            <div><dt>Location</dt><dd data-d-location2></dd></div>
+            <div><dt>Price</dt><dd data-d-price2></dd></div>
+            <div><dt>Posted on</dt><dd data-d-posted></dd></div>
+            <div><dt>Listing id</dt><dd><code data-d-id></code></dd></div>
+          </dl>
+
+          <div class="detail-actions">
+            <a class="btn btn-ghost" href="search.html" data-d-back>Back to the search results</a>
+            <a class="btn btn-ghost" href="search.html">Browse all cars</a>
+            <a class="btn btn-ghost" href="#contact" data-d-jump>Contact the seller</a>
+          </div>
+        </div>
+      </div>
+
+      <section class="section" data-d-notes-wrap hidden>
+        <h2>Seller's description</h2>
+        <p class="detail-notes" data-d-notes></p>
+      </section>
+
+      <section class="section" id="contact">
+        <h2>Contact the seller</h2>
+        <div class="card contact-card">
+          <div class="contact-head">
+            <div>
+              <h3 data-d-seller></h3>
+              <p class="small muted">
+                Registered seller &middot; username <code data-d-selleruser></code> &middot;
+                member since <span data-d-sellerdate></span>
+              </p>
+            </div>
+            <span class="badge">Verified</span>
+          </div>
+
+          <dl class="spec-list">
+            <div><dt>Email</dt><dd><a data-d-email href="#"></a></dd></div>
+            <div><dt>Phone</dt><dd><a data-d-phone href="#"></a></dd></div>
+            <div><dt>Address</dt><dd data-d-address></dd></div>
+          </dl>
+
+          <p class="small muted contact-note">
+            When you get in touch, quote the listing id <code data-d-id2></code> so the seller
+            can identify this car quickly. If you arrange to meet in person, choose a public
+            place and inspect the car before agreeing anything.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-d-other-wrap hidden>
+        <div class="page-head">
+          <h2>Other cars from this seller</h2>
+          <p>Every car posted by the same seller, excluding the one you are viewing.</p>
+        </div>
+        <div class="car-grid" data-d-other-grid></div>
+      </section>
+
+    </article>
+
+    <div data-notfound hidden>
+      <div class="empty">
+        <h3>That car could not be found</h3>
+        <p data-notfound-reason>
+          It may have been removed, or the id in the link may be wrong. If you have just
+          cleared the local data, any cars posted before that will also have gone.
+        </p>
+        <div class="row">
+          <a class="btn btn-primary" href="search.html">Back to the search page</a>
+          <a class="btn btn-ghost" href="index.html">Back to the home page</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>About AutoLink</h4>
+        <p>
+          An online car sales platform for private sellers. Sellers publish their own
+          listings and set their own prices; buyers can search and view car details
+          without registering.
+        </p>
+      </div>
+      <div>
+        <h4>For buyers</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search cars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For sellers</h4>
+        <ul>
+          <li><a href="seller.html">Seller centre</a></li>
+          <li><a href="register.html">Seller registration</a></li>
+          <li><a href="login.html">Seller sign-in</a></li>
+          <li><a href="addcar.html">Post a car</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> AutoLink Online Car Sales &middot; A teaching example for QHE4103 Fundamentals of Web Technology</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
